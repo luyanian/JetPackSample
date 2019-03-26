@@ -1,6 +1,5 @@
 package com.ryon.utils.mutils;
-
-import com.lanhi.ryon.utils.constant.RegexConstants;
+import com.ryon.utils.constant.RegexConstants;
 
 import java.util.ArrayList;
 import java.util.List;

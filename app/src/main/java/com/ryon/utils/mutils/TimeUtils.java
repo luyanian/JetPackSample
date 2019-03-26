@@ -1,7 +1,5 @@
 package com.ryon.utils.mutils;
-
-import com.lanhi.ryon.utils.constant.TimeConstants;
-
+import com.ryon.utils.constant.TimeConstants;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

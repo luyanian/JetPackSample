@@ -2,12 +2,11 @@ package com.ryon.utils.mutils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.v4.util.SimpleArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.lanhi.ryon.utils.constant.SPConstants;
+import androidx.annotation.NonNull;
+import androidx.collection.SimpleArrayMap;
+import com.ryon.utils.constant.SPConstants;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

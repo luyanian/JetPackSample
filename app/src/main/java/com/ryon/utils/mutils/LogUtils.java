@@ -1,9 +1,9 @@
 package com.ryon.utils.mutils;
 
 import android.os.Environment;
-import android.support.annotation.IntDef;
 import android.util.Log;
 
+import androidx.annotation.IntDef;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

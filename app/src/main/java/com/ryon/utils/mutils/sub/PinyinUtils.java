@@ -1,6 +1,5 @@
 package com.ryon.utils.mutils.sub;
-
-import android.support.v4.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 
 /**
  * <pre>
