@@ -34,40 +34,33 @@ android {
             dimension "channel"
             manifestPlaceholders = [channel:"百度"]
         }
-        calibaba{
-            dimension "channel"
-            manifestPlaceholders = [channel:"阿里巴巴"]
-        }
-        cyingyongbao{
-            dimension "channel"
-            manifestPlaceholders = [channel:"应用宝"]
-        }
     }
     buildTypes {
         release {
             applicationIdSuffix ".release"
+            buildConfigField("int", "ENV_TYPE", "1")
+            buildConfigField("String", "ENV_API_DOMAIN", "http://release.com")
             minifyEnabled true
             shrinkResources = true //优化我们的资源文件，除去那些没有用到资源
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             applicationIdSuffix ".debug"
+            buildConfigField("int", "ENV_TYPE", "2")
+            buildConfigField("String", "ENV_API_DOMAIN", '"http://debug.com"')
             debuggable true
-        }
-        stage {
-            initWith debug
-            applicationIdSuffix ".stage"
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }
