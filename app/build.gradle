@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        sign {
+            keyAlias 'sign'
+            keyPassword 'jetpack'
+            storeFile file('../sign/sign.jks')
+            storePassword 'jetpack'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.ryon.jetpacksample"
@@ -18,9 +26,9 @@ android {
     dataBinding {
         enabled true
     }
-    flavorDimensions "mode","channel"
-    productFlavors{
-        free{
+    flavorDimensions "mode", "channel"
+    productFlavors {
+        free {
             dimension "mode"
             applicationIdSuffix ".free"
 //            shrinkResources = true
@@ -29,22 +37,22 @@ android {
             dimension "mode"
             applicationIdSuffix ".pro"
         }
-        c360{
+        c360 {
             dimension "channel"
-            manifestPlaceholders = [channel:"360"]
+            manifestPlaceholders = [channel: "360"]
         }
-        cbaidu{
+        cbaidu {
             dimension "channel"
-            manifestPlaceholders = [channel:"百度"]
+            manifestPlaceholders = [channel: "百度"]
         }
     }
     buildTypes {
         release {
-            applicationIdSuffix ".release"
             buildConfigField("int", "ENV_TYPE", "1")
-            buildConfigField("String", "ENV_API_DOMAIN", "http://release.com")
+            buildConfigField("String", "ENV_API_DOMAIN", '"http://release.com"')
             minifyEnabled true
             shrinkResources = true //优化我们的资源文件，除去那些没有用到资源
+            signingConfig signingConfigs.sign
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -68,5 +76,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha03'
-
 }
