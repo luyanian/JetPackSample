@@ -1,4 +1,4 @@
-package com.ryon.jetpacksample.common
+package com.ryon.common
 
 import com.ryon.jetpacksample.BuildConfig
 import com.ryon.utils.mutils.AppUtils
