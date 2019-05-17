@@ -1,6 +1,7 @@
 package com.ryon.jetpacksample.news.pagingnet
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -25,6 +26,6 @@ class NewsPagingNetActivity : BaseActivity() {
 
         newsAdapter = NewsPageAdapter(this, model)
         binding.recyclerView.adapter = newsAdapter
-//        model.news.observe(this, Observer (userAdapter::submitList))
+        model.stories.observe(this, Observer { newsAdapter.submitList(it) })
     }
 }

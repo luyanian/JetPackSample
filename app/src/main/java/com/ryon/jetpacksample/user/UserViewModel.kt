@@ -9,16 +9,9 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.ryon.repositories.room.AppDatabaseUtils
 import com.ryon.repositories.room.entity.User
+import com.ryon.utils.mutils.ToastUtils
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    var userList: MutableLiveData<List<User>>? = null
-        get() {
-            if (field == null) {
-                field = MutableLiveData()
-            }
-            return field
-        }
-
     fun addUser() {
         val user = User(0)
         user.userName = "a"
@@ -39,13 +32,14 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         private const val ENABLE_PLACEHOLDER = false
     }
 
-    fun UsersDataSource(): DataSource.Factory<Int, User> {
+    fun usersDataSource(): DataSource.Factory<Int, User> {
         return AppDatabaseUtils.database.userDao().loadUsersDataSource()
     }
 
-    val users = LivePagedListBuilder(UsersDataSource(), PagedList
-        .Config.Builder()
-        .setPageSize(PAGE_SIZE)
-        .setEnablePlaceholders(ENABLE_PLACEHOLDER).build()).build()
-
+    val users = LivePagedListBuilder(
+        usersDataSource(), PagedList
+            .Config.Builder()
+            .setPageSize(PAGE_SIZE)
+            .setEnablePlaceholders(ENABLE_PLACEHOLDER).build()
+    ).build()
 }

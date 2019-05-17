@@ -5,8 +5,8 @@
 
     <data>
         <variable
-                name="news"
-                type="com.ryon.repositories.retrofit.entity.News"/>
+                name="store"
+                type="com.ryon.repositories.retrofit.entity.News.StoriesBean"/>
 
         <variable
                 name="model"
@@ -25,7 +25,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="@{news.toString()}"
+                android:text="@{store.toString()}"
                 tools:text="fasfsdafasdfasdfasf"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

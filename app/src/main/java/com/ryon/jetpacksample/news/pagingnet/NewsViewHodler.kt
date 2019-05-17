@@ -5,8 +5,8 @@ import com.ryon.jetpacksample.databinding.ActivityNewsItemBinding
 import com.ryon.repositories.retrofit.entity.News
 
 class NewsViewHodler(private val binding: ActivityNewsItemBinding): RecyclerView.ViewHolder(binding.root) {
-    fun bind(news: News,model: NewsViewModel){
-        binding.news = news
+    fun bind(store: News.StoriesBean,model: NewsViewModel){
+        binding.store = store
         binding.model = model
     }
 }
